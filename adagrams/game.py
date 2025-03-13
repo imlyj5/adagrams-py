@@ -35,19 +35,19 @@ def draw_letters():
     value_list = list(LETTER_POOL.values())
 
     while letter_count < 10:
-        letter_count += 1
         random_index = randint(0, 25)
 
         if value_list[random_index] > 0:
             letter.append(key_list[random_index])
             value_list[random_index] -= 1
+            letter_count += 1
         else:
             continue
         
         
     return letter
 
-draw_letters()   
+ 
 
 
 def uses_available_letters(word, letter_bank):
