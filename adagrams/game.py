@@ -51,7 +51,30 @@ def draw_letters():
 
 
 def uses_available_letters(word, letter_bank):
-    pass
+    status = False
+    #Can we use .copy()?
+    #Can we use lower() or capitalize()?
+    count_of_letter_mapping = {}
+
+    for i in letter_bank:
+        if i in count_of_letter_mapping:
+            count_of_letter_mapping[i]+= 1
+        else:
+            count_of_letter_mapping[i]= 1
+
+    #print(count_of_letter_mapping)
+
+    for i in word:
+        if i.capitalize() in letter_bank and count_of_letter_mapping[i.capitalize()]>0:
+            count_of_letter_mapping[i.capitalize()] -= 1
+            status = True
+        else:
+            status = False
+    return status
+
+letters = ["A", "X", "X", "X", "X", "X", "X", "X", "X", "X"]
+word = "AAA"
+uses_available_letters(word, letters)
 
 def score_word(word):
     pass
