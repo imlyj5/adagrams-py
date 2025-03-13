@@ -1,4 +1,5 @@
 from random import randint
+
 LETTER_POOL = {
     'A': 9, 
     'B': 2, 
@@ -26,6 +27,35 @@ LETTER_POOL = {
     'X': 1, 
     'Y': 2, 
     'Z': 1
+}
+
+SCORE_OF_LETTER = {
+    'A': 1, 
+    'B': 3, 
+    'C': 3, 
+    'D': 2, 
+    'E': 1, 
+    'F': 4, 
+    'G': 2, 
+    'H': 4, 
+    'I': 1, 
+    'J': 8, 
+    'K': 5, 
+    'L': 1, 
+    'M': 3, 
+    'N': 1, 
+    'O': 1, 
+    'P': 3, 
+    'Q': 10, 
+    'R': 1, 
+    'S': 1, 
+    'T': 1, 
+    'U': 1, 
+    'V': 4, 
+    'W': 4, 
+    'X': 8, 
+    'Y': 4, 
+    'Z': 10
 }
 
 def draw_letters():
@@ -72,12 +102,14 @@ def uses_available_letters(word, letter_bank):
             status = False
     return status
 
-letters = ["A", "X", "X", "X", "X", "X", "X", "X", "X", "X"]
-word = "AAA"
-uses_available_letters(word, letters)
 
 def score_word(word):
-    pass
+    score = 0
+    for i in word:
+        score += SCORE_OF_LETTER[i.capitalize()]
+    if len(word) >= 7:
+        score += 8
+    return score
 
 def get_highest_word_score(word_list):
     pass
